@@ -1,0 +1,37 @@
+DOEL: NIC Teaming, Storage spaces en Group Policies
+
+1. NIC teaming
+Maak een nieuw virtueel Host-Only netwerk aan in virtualbox.
+Zorg dat in het netwerk automatisch adressen worden uitgedeeld.
+Voeg 2 extra Host-Only adapters toe in je virtuele systeem met dat nieuwe netwerk.
+Combineer deze 2 netwerkadapters met NIC teaming (Switch Independent/Address Hash).
+Verwijder nadien dit team, de extra adapters en het nieuwe Host-Only netwerk.
+
+2. Storage spaces
+Voeg 3 extra IDE(!) schijven van 5GB toe in je virtuele systeem
+Maak een storage pool aan met deze 3 schijven. De laatste schijf gebruik je als hot spare.
+Maak een virtuele disk op deze storage pool (mirrored).
+Maak dan een nieuw Volume aan met deze virtuele schijf.
+Copieer een bestand naar je nieuwe schijf.
+Schakel je VM uit en verwijder de eerste schijf.
+Test uit of je na heropstarten je bestand nog kan zien.
+Verwijder nadien de storage space.
+
+3. Activeer de Recycle Bin in Active Directory
+Test uit of je, na het verwijderen van de "cisco" account, deze opnieuw kan herstellen vanuit de recycle bin.
+
+4. Group Policies
+Indien je nog geen user "student1" hebt, maak deze aan in OU "OU Studenten" en zorg dat deze lokaal kan aanloggen.
+We willen er nu voor zorgen dat "student1" niet te veel kan verknoeien op een domaincontroller.
+Open Group Policy Management, klik rechts op "OU Studenten"
+Maak een nieuw Group Policy Object aan voor de OU Studenten (geef als naam "Studenten Policy")
+Doe volgende wijzigingen aan alle studentenprofielen:
+
+- Zorg dat studenten niet aan de lokale C: schijf kunnen (via de file manager)
+- Zorg dat studenten geen display settings, achtergronden of screensavers kunnen zetten
+- Zorg dat volgende windows applicaties niet mogen gedraaid worden via de file manager: cmd.exe, powershell.exe
+- Zorg dat de PC geen autoplay uitvoert
+- Verwijder die lastige "balonnetjestips"
+- Gebruikers mogen niet aan het control panel
+- Bij Ctrl+ALT+DEL mag paswoord niet veranderd kunnen worden
+ 
