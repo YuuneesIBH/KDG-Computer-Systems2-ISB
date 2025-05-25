@@ -15,7 +15,7 @@ param (
 )
 
 if ($help) {
-    Write-Output "Gebruik: ./Watch-Dog.ps1 <programmanaam>"
+    Write-Output "Gebruik: ./Watch-Dog.ps1 -program <programmanaam>"
     exit
 }
 
