@@ -30,8 +30,7 @@ function Get-Streets {
 }
 
 # Functie: Sum-Overtredingen
-# Doel: Geef het totaal aantal overtredingen in één bepaalde straat ($value)
-function Sum-Overtredingen {
+# Doel: Geef het totaal aantal overtredingen in één bepaalde straat ($value)ifunction Sum-Overtredingen {
     param(
         [array]$overtredingen,
         [string]$straat
