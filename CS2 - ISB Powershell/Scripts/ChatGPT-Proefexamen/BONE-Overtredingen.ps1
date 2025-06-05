@@ -52,14 +52,17 @@ function Sum-Overtredingen {
 
 # Aanroepen
 # Toon de gefilterde overtredingen in de terminal
-$filtered = More-Overtredingen -data $data -grens 15
-$filtered | Format-Table
+#$filtered = More-Overtredingen -data $data -grens 15
+#$filtered | Format-Table
 
 # Toon unieke straten in de terminal
 $straten = Get-Straten -data $data
-$straten | Format-Table
+#$straten | Format-Table
 
 # Vraag gebruiker om een straat en toon totaal
-$search = Read-Host "Welke straat wens je op te zoeken?"
-$totaal = Sum-Overtredingen -data $data -straat $search
-Write-Host "`nTotaal aantal roodlichtovertredingen in ${search}: ${totaal}" -ForegroundColor Yellow
+#$search = Read-Host "Welke straat wens je op te zoeken?"
+#$totaal = Sum-Overtredingen -data $data -straat $search
+#Write-Host "`nTotaal aantal roodlichtovertredingen in ${search}: ${totaal}" -ForegroundColor Yellow
+
+
+return $weerdata | Where-Object { $_.Sid -eq $sid } | Sort-Object Temperatuur -Descending | Select-Object -First 1 Sid, Temperatuur
